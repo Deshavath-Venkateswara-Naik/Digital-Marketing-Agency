@@ -1,0 +1,147 @@
+/* services.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f2f4f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Container with smooth gradient and elevated effect */
+.services-item-details-container {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  padding: 60px 20px;
+  border-radius: 20px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+/* Card-like sections */
+.services-details-card-container,
+.services-items-benefit-container,
+.request-container-services {
+  background: #ffffff;
+  padding: 30px 35px;
+  border-radius: 16px;
+  margin-bottom: 35px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-details-card-container:hover,
+.services-items-benefit-container:hover,
+.request-container-services:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings styling */
+.services-details-card-heading,
+.services-benefit-heading,
+.request-heading-services {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.services-details-card-heading::after,
+.services-benefit-heading::after,
+.request-heading-services::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: #0061ff;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+/* Paragraph styling */
+.services-details-card-para,
+.services-benefit-para {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+/* Call-to-action button */
+.btn-contact {
+  background: linear-gradient(45deg, #0061ff, #60efff);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 8px 18px rgba(0, 97, 255, 0.3);
+}
+
+.btn-contact:hover {
+  background: linear-gradient(45deg, #0050e0, #4cd6ff);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 80, 224, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Service card grid item */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  padding: 24px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  height: 100%;
+  border: 1px solid #e0e6ed;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.12);
+  border-color: transparent;
+}
+
+/* Service headings */
+.services-page-heading {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+/* Service descriptions */
+.services-page-para {
+  color: #6c757d;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .services-details-card-container,
+  .services-items-benefit-container,
+  .request-container-services {
+    padding: 20px;
+  }
+
+  .services-details-card-heading,
+  .services-benefit-heading,
+  .request-heading-services {
+    font-size: 24px;
+  }
+
+  .btn-contact {
+    width: 100%;
+    text-align: center;
+  }
+}

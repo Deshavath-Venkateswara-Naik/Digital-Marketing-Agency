@@ -1,0 +1,63 @@
+/* LandingPage.css */
+
+/* Root variables for easy theming */
+:root {
+  --body-font-family: 'Inter', sans-serif;
+  --body-font-size: 16px;
+  --body-font-weight: 400;
+  --body-font-color: #333;
+  --body-line-height: 1.6;
+  --heading-font-family: 'Inter', sans-serif;
+  --heading-font-color: #111;
+  --link-font-color: #0056b3;
+  --link-hover-font-color: #003d82;
+  --background-color: #ffffff;
+}
+
+/* Reset some basic styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body styles */
+body {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  color: var(--body-font-color);
+  background-color: var(--background-color);
+  padding: 0;
+  margin: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font-family);
+  color: var(--heading-font-color);
+  margin-bottom: 0.5em;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1em;
+}
+
+/* Links */
+a {
+  color: var(--link-font-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-hover-font-color);
+}
+
+/* Utility class for fixed background effect */
+.attach {
+  background-attachment: fixed;
+  overflow: auto;
+}

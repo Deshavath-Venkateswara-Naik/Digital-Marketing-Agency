@@ -1,0 +1,103 @@
+/* BlogPostDetail.css */
+
+/* Page background container */
+.attach {
+  background: linear-gradient(to right, #f3f4f7, #ffffff);
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Blog detail card layout */
+.blog-detail-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Blog image styling */
+.blog-detail-img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  align-self: center;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.blog-detail-img:hover {
+  transform: scale(1.03);
+}
+
+/* Title with accent underline */
+.blog-detail-card .card-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  border-bottom: 3px solid #36D7B7;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Author/date subtitle */
+.card-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+/* Blog content block */
+.blog-content {
+  background-color: #fcfcfc;
+  padding: 24px 28px;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.05);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+/* Remove border and extra padding from Quill editor */
+.ql-container {
+  border: none !important;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.ql-editor {
+  padding: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .attach {
+    padding: 30px 10px;
+  }
+
+  .blog-detail-card {
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+
+  .blog-detail-img {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .blog-content {
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .blog-detail-card .card-title {
+    font-size: 1.75rem;
+  }
+}
