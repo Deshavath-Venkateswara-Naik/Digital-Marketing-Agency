@@ -1,5 +1,3 @@
-/* services.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 body {
@@ -92,7 +90,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Service card grid item */
+/* Service card grid item - fixed height box */
 .service-card {
   background: #ffffff;
   border-radius: 16px;
@@ -100,8 +98,12 @@ body {
   padding: 24px 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  height: 100%;
+  height: 320px; /* fixed height */
   border: 1px solid #e0e6ed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
 }
 
 .service-card:hover {
@@ -116,14 +118,18 @@ body {
   font-weight: 600;
   margin-bottom: 12px;
   font-size: 20px;
+  flex-shrink: 0;
 }
 
-/* Service descriptions */
+/* Service descriptions - scroll if overflow */
 .services-page-para {
   color: #6c757d;
   font-size: 15px;
   line-height: 1.5;
   letter-spacing: 0.3px;
+  overflow-y: auto;
+  flex-grow: 1;
+  margin: 0;
 }
 
 /* Responsive Improvements */

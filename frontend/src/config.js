@@ -1,3 +1,2 @@
-const api = 'https://railand.onrender.com';
-
+const api = 'http://localhost:8000';
 export default api;

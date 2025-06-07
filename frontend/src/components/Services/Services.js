@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card} from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import { ClipLoader } from 'react-spinners';
 import api from '../../config';
-import './Services.css'; // or the appropriate path
+import './Services.css';
 
 const override = css`
   display: block;
@@ -18,8 +18,8 @@ const YourServiceCardComponent = ({ service }) => {
       <Link to={`/services/${service._id}`} className="nav-link">
         <Card className="service-card" style={{ minHeight: '280px' }}>
           <Card.Body>
-            <h1 className="services-page-heading" style={{ fontSize: '1.5rem' }}>{service.serviceType}</h1>
-            <p className="services-page-para" style={{ fontSize: '1rem' }}>{service.serviceOuterDescription}</p>
+            <h1 className="services-page-heading" style={{ fontSize: '1.5rem' }}>{service.title}</h1>
+            <p className="services-page-para" style={{ fontSize: '1rem' }}>{service.description}</p>
           </Card.Body>
         </Card>
       </Link>
@@ -27,14 +27,11 @@ const YourServiceCardComponent = ({ service }) => {
   );
 };
 
-
-
 const ServicesPage = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch services from the API
     fetch(`${api}/services`)
       .then((response) => response.json())
       .then((data) => {
