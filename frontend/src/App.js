@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/Navbar/Navbar';
@@ -12,6 +11,9 @@ import ServiceDetailsPage from './components/Services/ServiceDetail';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
 import ContactForm from './components/ContactForm/ContactUsForm';
 import PricingPage from './components/Pricing/PricingPage';
+import Testimonials from './components/Testimonials/Testimonials';
+import Portfolio from './components/Portfolio/Portfolio';
+import LeadTools from './components/LeadGeneration/LeadTools'; // make sure this exists
 
 const App = () => {
   return (
@@ -27,6 +29,9 @@ const App = () => {
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/contactus" element={<ContactForm />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/lead-tools" element={<LeadTools />} />
       </Routes>
       <Footer />
     </Router>

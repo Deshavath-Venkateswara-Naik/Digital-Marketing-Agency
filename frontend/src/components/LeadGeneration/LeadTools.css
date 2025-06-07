@@ -1,0 +1,51 @@
+/* Scoped styles for LeadTools component only */
+.lead-tools-section {
+    padding: 80px 1rem 2rem;
+  }
+  
+  .lead-tools-section h2 {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .lead-tools-section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #6c5ce7;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+  
+  .lead-tools-section .lead-card {
+    border: none;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+  }
+  
+  .lead-tools-section .lead-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lead-tools-section .card-body div {
+    font-size: 2.5rem;
+    color: #6c5ce7;
+  }
+  
+  .lead-tools-section .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3436;
+  }
+  
+  .lead-tools-section .card-text {
+    font-size: 1.05rem;
+    color: #636e72;
+  }
+  

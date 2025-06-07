@@ -1,11 +1,10 @@
-// src/components/Navbar/Navbar.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const NavigationBar = () => {
   const [isNavOpen, setNavOpen] = useState(false);
-  const [activeNavItem, setActiveNavItem] = useState('home');
+  const [activeNavItem, setActiveNavItem] = useState('');
 
   const handleToggle = () => {
     setNavOpen(!isNavOpen);
@@ -20,8 +19,11 @@ const NavigationBar = () => {
     { id: '', label: 'Home' },
     { id: 'blog', label: 'Blog' },
     { id: 'services', label: 'Services' },
-    { id: 'about', label: 'About Us' },
-    { id: 'pricing', label: 'Pricing' }
+    { id: 'portfolio', label: 'Portfolio' },
+    { id: 'testimonials', label: 'Testimonials' },
+    { id: 'lead-tools', label: 'Lead Tools' },
+    { id: 'pricing', label: 'Pricing' },
+    { id: 'about', label: 'About Us' }
   ];
 
   return (
@@ -29,7 +31,11 @@ const NavigationBar = () => {
       <div className="container">
         <div className="navbar-header d-flex align-items-center">
           <Link className="navbar-brand" to="/">
-            <img src="https://res.cloudinary.com/dpcfyn3si/image/upload/v1707019334/fadh3gidswa9iapkidkf.png" width="30%" alt="weblogo" />
+            <img
+              src="https://res.cloudinary.com/dpcfyn3si/image/upload/v1707019334/fadh3gidswa9iapkidkf.png"
+              width="30%"
+              alt="weblogo"
+            />
           </Link>
           <button
             className={`navbar-toggler ${isNavOpen ? '' : 'collapsed'}`}
@@ -48,7 +54,10 @@ const NavigationBar = () => {
         <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav ml-auto">
             {navItems.map((item) => (
-              <li key={item.id} className={`nav-item ${activeNavItem === item.id ? 'active' : ''}`}>
+              <li
+                key={item.id}
+                className={`nav-item ${activeNavItem === item.id ? 'active' : ''}`}
+              >
                 <Link
                   className="nav-link"
                   to={`/${item.id}`}
