@@ -20,7 +20,7 @@ const ContactUsForm = () => {
     const formData = { name, email, message };
 
     try {
-      const response = await fetch("http://localhost:8000/contact", {
+      const response = await fetch("https://digital-marketing-agency-5owr.onrender.com/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
