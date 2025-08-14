@@ -17,7 +17,7 @@ app.use(cors());
 // Connect to MongoDB
 const connectToMongoDB = async () => {
   try {
-    const connectionString = "mongodb://localhost:27017/Marketing";
+    const connectionString = "mongodb+srv://Venkatesh:Ven%408919@cluster0.szvadjb.mongodb.net/Marketing_Agency?retryWrites=true&w=majority";
     await mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log("Connected to MongoDB");
   } catch (error) {
