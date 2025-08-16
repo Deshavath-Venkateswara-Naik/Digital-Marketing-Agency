@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Card } from 'react-bootstrap';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { useParams } from 'react-router-dom';
-import moment from 'moment';
-import './Blog.css';
-import api from '../../config';
+import React, { useState, useEffect } from "react";
+import { Container, Card } from "react-bootstrap";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import { useParams } from "react-router-dom";
+import moment from "moment";
+import "./Blog.css";
+import api from "../../config";
 
 const BlogPostDetail = () => {
   const [blogPost, setBlogPost] = useState({});
@@ -15,7 +15,7 @@ const BlogPostDetail = () => {
     fetch(`${api}/blogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlogPost(data))
-      .catch((error) => console.error('Error fetching blog post details:', error));
+      .catch((error) => console.error("Error fetching blog post details:", error));
   }, [id]);
 
   return (
@@ -31,16 +31,16 @@ const BlogPostDetail = () => {
         <Card.Body>
           <Card.Title className="mb-3">{blogPost.title}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            by Deshavath Venkateswara Naik |{' '}
+            by {blogPost.author} |{" "}
             {blogPost.createdAt
-              ? moment(blogPost.createdAt).format('MMM D, YYYY h:mm A')
-              : ''}
+              ? moment(blogPost.createdAt).format("MMM D, YYYY h:mm A")
+              : ""}
           </Card.Subtitle>
           <div className="blog-content">
             <ReactQuill
               readOnly
               theme="snow"
-              value={blogPost.content || ''}
+              value={blogPost.content || ""}
               modules={{
                 toolbar: false,
               }}

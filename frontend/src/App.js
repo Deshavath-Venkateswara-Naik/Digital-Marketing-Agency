@@ -14,6 +14,7 @@ import PricingPage from './components/Pricing/PricingPage';
 import Testimonials from './components/Testimonials/Testimonials';
 import Portfolio from './components/Portfolio/Portfolio';
 import LeadTools from './components/LeadGeneration/LeadTools'; // make sure this exists
+import "react-loading-skeleton/dist/skeleton.css";
 
 const App = () => {
   return (
