@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./BlogPage.css";
@@ -9,36 +9,42 @@ import api from "../../config";
 const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // 🔹 for programmatic navigation
 
   useEffect(() => {
     fetch(`${api}/blogs`)
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
         setBlogPosts(data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.error("Error fetching blog posts:", error);
+      .catch((err) => {
+        console.error("Error fetching blog posts:", err);
         setLoading(false);
       });
   }, []);
 
   const getFirstSentence = (text) => {
-    const sanitizedContent = text.replace(/<\/?p>/g, "");
-    const sentences = sanitizedContent.split(/[.!?]/);
+    const sanitized = text.replace(/<\/?p>/g, "");
+    const sentences = sanitized.split(/[.!?]/);
     return sentences[0];
   };
 
   return (
-    <Container className="blog-page-container">
-      <h2 className="blog-page-title">Latest Blogs by Deshavath Venkateswara Naik</h2>
+    <Container className="blog-page-container mt-4">
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h2>Latest Blogs by Deshavath Venkateswara Naik</h2>
+        <Button variant="success" onClick={() => navigate("/adminblog/add")}>
+          + Add Blog
+        </Button>
+      </div>
+
       <Row>
         {loading
-          ? // 🔹 Show shimmer placeholders while loading
-            Array(6)
+          ? Array(6)
               .fill()
-              .map((_, index) => (
-                <Col key={index} md={4}>
+              .map((_, idx) => (
+                <Col key={idx} md={4}>
                   <Card className="blog-card m-2 p-2" style={{ minHeight: "350px" }}>
                     <Skeleton height={200} />
                     <Card.Body>
@@ -50,8 +56,7 @@ const BlogPage = () => {
                   </Card>
                 </Col>
               ))
-          : // 🔹 Show actual blogs after loading
-            blogPosts.map((post) => (
+          : blogPosts.map((post) => (
               <Col key={post._id} md={4}>
                 <Card className="blog-card m-2 p-2" style={{ minHeight: "350px" }}>
                   <Card.Img
@@ -66,9 +71,17 @@ const BlogPage = () => {
                       By {post.author}
                     </Card.Subtitle>
                     <Card.Text>{getFirstSentence(post.content)}</Card.Text>
-                    <Link to={`/blog/${post._id}`}>
-                      <Button variant="primary">Read More</Button>
-                    </Link>
+                    <div className="d-flex justify-content-between">
+                      <Link to={`/blog/${post._id}`}>
+                        <Button variant="primary">Read More</Button>
+                      </Link>
+                      <Button
+                        variant="info"
+                        onClick={() => navigate(`/adminblog/update/${post._id}`)}
+                      >
+                        Edit
+                      </Button>
+                    </div>
                   </Card.Body>
                 </Card>
               </Col>

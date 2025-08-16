@@ -15,6 +15,11 @@ import Testimonials from './components/Testimonials/Testimonials';
 import Portfolio from './components/Portfolio/Portfolio';
 import LeadTools from './components/LeadGeneration/LeadTools'; // make sure this exists
 import "react-loading-skeleton/dist/skeleton.css";
+import AddBlog from './components/Blog/AddBlog';
+import UpdateBlog from './components/Blog/UpdateBlog';
+import AddService from './components/Services/AddService';
+import UpdateService from './components/Services/UpdateService';
+
 
 const App = () => {
   return (
@@ -33,6 +38,10 @@ const App = () => {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/lead-tools" element={<LeadTools />} />
+        <Route path="/adminblog/add" element={<AddBlog />} />
+  <Route path="/adminblog/update/:id" element={<UpdateBlog />} />
+  <Route path="/adminservice/add" element={<AddService />} />
+<Route path="/adminservice/update/:id" element={<UpdateService />} />
       </Routes>
       <Footer />
     </Router>

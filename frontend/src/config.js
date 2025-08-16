@@ -1,2 +1,2 @@
-const api = 'https://digital-marketing-agency-5owr.onrender.com';
+const api = 'http://localhost:8000';
 export default api;

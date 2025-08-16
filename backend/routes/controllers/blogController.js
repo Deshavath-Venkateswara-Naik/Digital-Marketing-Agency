@@ -1,6 +1,6 @@
-// controllers/blogController.js
 const BlogPost = require("../../models/BlogPost");
 
+// Get all blogs
 exports.getAllBlogPosts = async (req, res) => {
   try {
     const blogPosts = await BlogPost.find();
@@ -11,15 +11,12 @@ exports.getAllBlogPosts = async (req, res) => {
   }
 };
 
+// Get blog by id
 exports.getBlogPostById = async (req, res) => {
   try {
     const { id } = req.params;
     const blogPost = await BlogPost.findById(id);
-
-    if (!blogPost) {
-      return res.status(404).json({ error: "Blog post not found" });
-    }
-
+    if (!blogPost) return res.status(404).json({ error: "Blog post not found" });
     res.json(blogPost);
   } catch (error) {
     console.error("Error fetching blog post:", error);
@@ -27,17 +24,16 @@ exports.getBlogPostById = async (req, res) => {
   }
 };
 
+// Create a new blog
 exports.createBlogPost = async (req, res) => {
   try {
-    const { title, content, author, imageUrl} = req.body;
-
+    const { title, content, author, imageUrl } = req.body;
     if (!title || !content || !author || !imageUrl) {
-      return res.status(400).json({ error: "Title, content, and author are required fields." });
+      return res.status(400).json({ error: "All fields are required." });
     }
 
     const newBlogPost = new BlogPost({ title, content, author, imageUrl });
     await newBlogPost.save();
-
     res.json({ message: "Blog post created successfully", blogPost: newBlogPost });
   } catch (error) {
     console.error("Error creating blog post:", error);
@@ -45,24 +41,23 @@ exports.createBlogPost = async (req, res) => {
   }
 };
 
+// Update blog
 exports.updateBlogPost = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, content, author, imageUrl} = req.body;
+    const { title, content, author, imageUrl } = req.body;
 
     if (!title || !content || !author || !imageUrl) {
-      return res.status(400).json({ error: "Title, content, and author are required fields." });
+      return res.status(400).json({ error: "All fields are required." });
     }
 
     const updatedBlogPost = await BlogPost.findByIdAndUpdate(
       id,
-      { title, content, author },
+      { title, content, author, imageUrl },
       { new: true }
     );
 
-    if (!updatedBlogPost) {
-      return res.status(404).json({ error: "Blog post not found" });
-    }
+    if (!updatedBlogPost) return res.status(404).json({ error: "Blog post not found" });
 
     res.json({ message: "Blog post updated successfully", blogPost: updatedBlogPost });
   } catch (error) {
@@ -71,16 +66,12 @@ exports.updateBlogPost = async (req, res) => {
   }
 };
 
+// Delete blog
 exports.deleteBlogPost = async (req, res) => {
   try {
     const { id } = req.params;
-
     const deletedBlogPost = await BlogPost.findByIdAndDelete(id);
-
-    if (!deletedBlogPost) {
-      return res.status(404).json({ error: "Blog post not found" });
-    }
-
+    if (!deletedBlogPost) return res.status(404).json({ error: "Blog post not found" });
     res.json({ message: "Blog post deleted successfully", blogPost: deletedBlogPost });
   } catch (error) {
     console.error("Error deleting blog post:", error);

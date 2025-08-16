@@ -6,7 +6,7 @@ const blogPostSchema = new mongoose.Schema({
   content: { type: String, required: true },
   author: { type: String, required: true },
   date: { type: Date, default: Date.now },
-  imageUrl: String, // Add this line for the featured image URL
+  imageUrl: { type: String, required: true },
 });
 
 const BlogPost = mongoose.model("blogPosts", blogPostSchema);
